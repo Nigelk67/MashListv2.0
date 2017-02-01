@@ -24,6 +24,9 @@ class SearchVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
        collection.dataSource = self
         collection.delegate = self
         
+        DataService.ds.downloadiTunesData {
+            self.collection.reloadData()
+        }
         
         
         
@@ -37,7 +40,7 @@ class SearchVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as? ItemCell {
             
-            cell.configureCell(media)
+            cell.configureCell(item: media)
             
             return cell
             
@@ -55,7 +58,7 @@ class SearchVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return mediaItems.count
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

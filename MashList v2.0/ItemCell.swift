@@ -16,14 +16,12 @@ class ItemCell: UICollectionViewCell {
     
     
     var mediaItem: MediaItem!
+    var ds: DataService!
     
-    
-    
-    func configureCell(_ mediaItem: MediaItem) {
+
+    func configureCell(item: MediaItem) {
         
-        self.mediaItem = mediaItem
-        
-        self.nameLbl.text = mediaItem.mediaTitle.capitalized
+       // self.nameLbl.text = ds.mediaTitle.capitalized
         
         self.thumbImg.image = UIImage(named: "\(self.mediaItem.image)")
         
