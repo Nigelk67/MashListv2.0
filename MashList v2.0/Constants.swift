@@ -9,7 +9,7 @@
 import Foundation
 
 
-let TEST_URL = "https://itunes.apple.com/search?term=fightclub&country=GB&entity=movie"
+let TEST_URL = "https://itunes.apple.com/search?term=Xmen&country=GB&entity=movie"
 
 
 typealias DownloadComplete = () -> ()

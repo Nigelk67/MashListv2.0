@@ -14,36 +14,55 @@ class DataService {
     
     static let ds = DataService()
     
-    var mediaTitles = [String]()
+    var mediaTitles = [MediaItem]()
     var images = [String]()
    
     var mediaItem: MediaItem!
     
-    
-
-    func downloadiTunesData(completed: @escaping DownloadComplete) {
+    ///dcs:  added completion handler to this method that will send back an array of mediaitem objects
+    func downloadiTunesData(completion: @escaping (_ result: [MediaItem]) -> Void) {
+        
         Alamofire.request(TEST_URL).responseJSON(completionHandler: { (response) in
             if let dict = response.result.value as? Dictionary<String, AnyObject> {
-                if let results = dict["results"] as? [Dictionary<String, AnyObject>] {
+                //dcs:  results is actually an array of dictionaries, so I casted it as such.  The rest of the method is somewhat self explanatory
+                if let results = dict["results"] as? NSArray {
                     
-                    if let title = results[0]["trackName"] as? String {
-                        self.mediaTitles.append(title)
-                       // mediaItem_mediaTitle = title.capitalized
+                    
+                    for x in 0..<results.count {
+                        
+                        var mItem: MediaItem = MediaItem()
+                        
+                        for ( key, value) in (results[x] as? Dictionary<String, AnyObject>)! {
+                            if key == "artworkUrl100" {
+                                mItem.imgURL = value as! String
+                            }
+                            
+                            if key == "trackName" {
+                                mItem.mediaTitle = value as! String
+                            }
+                            
+                            if key == "longDescription" {
+                                mItem.itemDescription = value as! String
+                            }
+                            
+                            if key == "artistName" {
+                                mItem.director = value as! String
+                            }
+                            
+                            if key == "collectionPrice" {
+                                mItem.Price = String(describing: value)
+                            }
+                        }
+                        
+                        self.mediaTitles.append(mItem)
                     }
-//                    if let image = results[0]["artworkUrl100"] as? String {
-//                        self.images.append(image)
-//                    }
-//                
-//                    if let item = results[0]["longDescription"] as? String {
-//                        self.mediaItem._itemDescription = item.capitalized
-//                    }
-//                    if let director = results[0]["artistName"] as? String {
-//                        self.mediaItem._director = director.capitalized
-//                    }
-                    
                 }
             }
-            completed()
+            
+            //dcs: after going through all of the returned data, signal this method complete
+            //and include the array of media objects
+            
+            completion(self.mediaTitles)
     })
     
     

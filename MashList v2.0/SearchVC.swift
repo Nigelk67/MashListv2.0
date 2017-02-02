@@ -7,29 +7,29 @@
 //
 
 import UIKit
-import Alamofire
 
 
 class SearchVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
     
     @IBOutlet weak var collection: UICollectionView!
     
-    
     var mediaItems = [MediaItem]()
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       collection.dataSource = self
-        collection.delegate = self
         
-        DataService.ds.downloadiTunesData {
+        //dcs: updated this download method to include a completion handler which is called when you download all of the data for the request
+        DataService.ds.downloadiTunesData { (DownloadedItems) in
+            self.mediaItems = DownloadedItems
+            
+            self.collection.dataSource = self
+            self.collection.delegate = self
+            
             self.collection.reloadData()
+
+
         }
-        
-        
-        
     }
 
     //CollectionView protocols:-
@@ -41,7 +41,6 @@ class SearchVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as? ItemCell {
             
             cell.configureCell(item: media)
-            
             return cell
             
         } else {
@@ -66,7 +65,9 @@ class SearchVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: 100)
+        
+        //dcs:  updated size of item to show more content
+        return CGSize(width: 140, height: 225)
     }
 
 }

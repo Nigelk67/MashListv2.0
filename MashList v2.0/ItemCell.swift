@@ -13,6 +13,8 @@ class ItemCell: UICollectionViewCell {
     
     @IBOutlet weak var thumbImg: UIImageView!
     @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var directorLbl: UILabel!
+    @IBOutlet weak var priceLbl: UILabel!
     
     
     var mediaItem: MediaItem!
@@ -21,9 +23,33 @@ class ItemCell: UICollectionViewCell {
 
     func configureCell(item: MediaItem) {
         
-       // self.nameLbl.text = ds.mediaTitle.capitalized
+        //dcs: just loaded more data points to fill out the CV a bit
+        self.nameLbl.text = item.mediaTitle
+        self.directorLbl.text = item.ArtistName
+        self.priceLbl.text = item.Price
         
-        self.thumbImg.image = UIImage(named: "\(self.mediaItem.image)")
+        //dcs:  commented this out as its no longer needed
+        //self.thumbImg.image = UIImage(named: "\(self.mediaItem.image)")
+        
+        //dcs:  load up the 100x100 version of the image
+        let url = URL(string: item.imgURL)
+        
+        //async operation to download the image for each cell
+        DispatchQueue.global().async {
+            do {
+                //gets the data from the download request ( ie:  image )
+                let data = try Data(contentsOf: url!)
+                
+                //puts you back on the main ui thread so you can access the ui elements
+                DispatchQueue.global().sync {
+                    //sets the thumbnail image
+                    self.thumbImg.image = UIImage(data: data)
+                }
+            } catch {
+                
+            }
+        }
+
         
     }
     

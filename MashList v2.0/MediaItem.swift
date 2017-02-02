@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Alamofire
 
 class MediaItem {
 
@@ -17,7 +16,41 @@ private var _director: String!
 private var _itemDescription: String!
 private var _image: String!
 private var _mediaTitle: String!
+private var _imgURL: String!
+private var _artistName: String!
+    private var _price: String!
     
+    
+    var Price: String {
+        get {
+            if _price == nil {
+                _price = ""
+            }
+            
+            return _price
+            
+        }
+        
+        set {
+            _price = newValue
+        }
+    }
+
+    
+    var imgURL: String {
+        get {
+            if _imgURL == nil {
+                _imgURL = ""
+            }
+            
+            return _imgURL
+
+        }
+        
+        set {
+            _imgURL = newValue
+        }
+    }
 
 var image: String {
     if _image == nil {
@@ -27,25 +60,62 @@ var image: String {
     }
 
 var mediaTitle: String {
-    if _mediaTitle == nil {
-        _mediaTitle = ""
+    
+    
+    get {
+        if _mediaTitle == nil {
+            _mediaTitle = ""
+        }
+        return _mediaTitle
     }
-    return _mediaTitle
+    
+    set {
+        _mediaTitle = newValue
+    }
 }
 
 var director: String {
+    get {
+        
     if _director == nil {
         _director = ""
     }
     return _director
 }
-
-var itemDescription: String {
-    if _itemDescription == nil {
-        _itemDescription = ""
+    set {
+        _director = newValue
     }
-    return _itemDescription
 }
+    
+    
+var itemDescription: String {
+    
+    
+    get {
+        if _itemDescription == nil {
+            _itemDescription = ""
+        }
+        return _itemDescription
+    }
+    
+    set {
+        _itemDescription = newValue
+    }
+}
+    
+    var ArtistName: String {
+        get {
+            if _artistName == nil {
+                _artistName = ""
+            }
+            
+            return _artistName
+        }
+        set {
+            _artistName = newValue
+        }
+        
+    }
         
     
 
