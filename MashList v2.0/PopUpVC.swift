@@ -11,7 +11,11 @@ import UIKit
 class PopUpVC: UIViewController {
     
     
+    @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var popUpView: UIView!
+    
+    var item: MediaItem!
+    
     
     @IBAction func closePopUp(_ sender: UIButton) {
         
@@ -20,11 +24,12 @@ class PopUpVC: UIViewController {
     
     
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        nameLbl.text = item.mediaTitle
 
-        popUpView.layer.cornerRadius = 10
+        popUpView.layer.cornerRadius = 20
         //popUpView.layer.masksToBounds = true
         
         

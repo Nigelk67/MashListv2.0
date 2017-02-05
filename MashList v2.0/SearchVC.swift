@@ -37,17 +37,17 @@ class SearchVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         //dcs: updated this download method to include a completion handler which is called when you download all of the data for the request
         DataService.ds.downloadiTunesData { (DownloadedItems) in
             self.mediaItems = DownloadedItems
-        }
+        
         
             self.collection.dataSource = self
             self.collection.delegate = self
             
-         //   self.searchBar.delegate = self
+            self.searchBar.delegate = self
         
         
         
-           //self.collection.reloadData()
-//    }
+           self.collection.reloadData()
+ }
 }
 
 //    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -102,6 +102,7 @@ class SearchVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         let media = mediaItems[indexPath.row]
         
          performSegue(withIdentifier: "PopUpVC", sender: media)
+        // Works in conjunction with the 'prepareforsegue' function below.
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -111,6 +112,21 @@ class SearchVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
+    
+    
+    //Prepares for information to be transferred to the new PopUpVC:-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PopUpVC" {
+            if let itemsVC = segue.destination as? PopUpVC {
+                if let mediaItem = sender as? MediaItem {
+                    itemsVC.item = mediaItem
+                    
+                }
+            }
+        }
+    }
+    
+    
     
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 //        
