@@ -20,6 +20,8 @@
 		A6707E8C1E4229D100974622 /* RoundedRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6707E8B1E4229CE00974622 /* RoundedRect.swift */; };
 		A6707E8E1E422CCC00974622 /* InitialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6707E8D1E422CCC00974622 /* InitialVC.swift */; };
 		A6707E901E42441F00974622 /* CustomBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6707E8F1E42441F00974622 /* CustomBtn.swift */; };
+		A6707E941E43992B00974622 /* VarelaRound-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6707E931E43992B00974622 /* VarelaRound-Regular.ttf */; };
+		A6707E971E471E5B00974622 /* PopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6707E961E471E5A00974622 /* PopUpVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		A6707E8B1E4229CE00974622 /* RoundedRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedRect.swift; sourceTree = "<group>"; };
 		A6707E8D1E422CCC00974622 /* InitialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialVC.swift; sourceTree = "<group>"; };
 		A6707E8F1E42441F00974622 /* CustomBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBtn.swift; sourceTree = "<group>"; };
+		A6707E931E43992B00974622 /* VarelaRound-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "VarelaRound-Regular.ttf"; path = "../../../MashBin/2015 Redesign/Designs/Final/Ai files/Font/VarelaRound-Regular.ttf"; sourceTree = "<group>"; };
+		A6707E961E471E5A00974622 /* PopUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpVC.swift; sourceTree = "<group>"; };
 		F55E2A9D8A2B53B0DAC89F9B /* Pods_MashList_v2_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MashList_v2_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -89,6 +93,7 @@
 				A6707E8A1E41D6C800974622 /* Controller */,
 				A6707E851E41C75200974622 /* Services */,
 				A6707E6A1E3F3F1100974622 /* AppDelegate.swift */,
+				A6707E931E43992B00974622 /* VarelaRound-Regular.ttf */,
 				A6707E6E1E3F3F1100974622 /* Main.storyboard */,
 				A6707E711E3F3F1100974622 /* Assets.xcassets */,
 				A6707E731E3F3F1100974622 /* LaunchScreen.storyboard */,
@@ -129,6 +134,7 @@
 			children = (
 				A6707E8D1E422CCC00974622 /* InitialVC.swift */,
 				A6707E811E3F49D400974622 /* SearchVC.swift */,
+				A6707E961E471E5A00974622 /* PopUpVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -205,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6707E751E3F3F1100974622 /* LaunchScreen.storyboard in Resources */,
+				A6707E941E43992B00974622 /* VarelaRound-Regular.ttf in Resources */,
 				A6707E721E3F3F1100974622 /* Assets.xcassets in Resources */,
 				A6707E701E3F3F1100974622 /* Main.storyboard in Resources */,
 			);
@@ -272,6 +279,7 @@
 				A6707E871E41C7C100974622 /* DataService.swift in Sources */,
 				A6707E8C1E4229D100974622 /* RoundedRect.swift in Sources */,
 				A6707E8E1E422CCC00974622 /* InitialVC.swift in Sources */,
+				A6707E971E471E5B00974622 /* PopUpVC.swift in Sources */,
 				A6707E7E1E3F444200974622 /* Constants.swift in Sources */,
 				A6707E801E3F487B00974622 /* ItemCell.swift in Sources */,
 			);

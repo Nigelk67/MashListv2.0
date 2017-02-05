@@ -14,7 +14,7 @@ class ItemCell: UICollectionViewCell {
     @IBOutlet weak var thumbImg: UIImageView!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var directorLbl: UILabel!
-    @IBOutlet weak var priceLbl: UILabel!
+    @IBOutlet weak var itemDescriptionLbl: UITextView!
     
     
     var mediaItem: MediaItem!
@@ -25,8 +25,8 @@ class ItemCell: UICollectionViewCell {
         
         //dcs: just loaded more data points to fill out the CV a bit
         self.nameLbl.text = item.mediaTitle
-        self.directorLbl.text = item.ArtistName
-        self.priceLbl.text = item.Price
+        self.directorLbl.text = item.director
+        self.itemDescriptionLbl.text = item.itemDescription
         
         //dcs:  commented this out as its no longer needed
         //self.thumbImg.image = UIImage(named: "\(self.mediaItem.image)")

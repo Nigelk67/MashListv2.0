@@ -13,14 +13,17 @@ class InitialVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        
-        
+
         
     }
 
    
     
+    @IBAction func AddInitialVCButton(_ sender: UIButton) {
+        
+        performSegue(withIdentifier: "SearchVC", sender: "InitialVC")
+        
+    }
     
     
     

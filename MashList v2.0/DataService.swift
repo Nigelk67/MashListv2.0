@@ -18,11 +18,12 @@ class DataService {
     var images = [String]()
    
     var mediaItem: MediaItem!
+    var search: SearchVC!
     
     ///dcs:  added completion handler to this method that will send back an array of mediaitem objects
     func downloadiTunesData(completion: @escaping (_ result: [MediaItem]) -> Void) {
         
-        Alamofire.request(TEST_URL).responseJSON(completionHandler: { (response) in
+        Alamofire.request("https://itunes.apple.com/search?term=FightClub&country=GB&entity=movie").responseJSON(completionHandler: { (response) in
             if let dict = response.result.value as? Dictionary<String, AnyObject> {
                 //dcs:  results is actually an array of dictionaries, so I casted it as such.  The rest of the method is somewhat self explanatory
                 if let results = dict["results"] as? NSArray {
@@ -30,7 +31,7 @@ class DataService {
                     
                     for x in 0..<results.count {
                         
-                        var mItem: MediaItem = MediaItem()
+                        let mItem: MediaItem = MediaItem()
                         
                         for ( key, value) in (results[x] as? Dictionary<String, AnyObject>)! {
                             if key == "artworkUrl100" {
