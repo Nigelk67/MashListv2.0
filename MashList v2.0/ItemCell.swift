@@ -28,6 +28,7 @@ class ItemCell: UICollectionViewCell {
         self.directorLbl.text = item.director
         self.itemDescriptionLbl.text = item.itemDescription
         
+        
         //dcs:  commented this out as its no longer needed
         //self.thumbImg.image = UIImage(named: "\(self.mediaItem.image)")
         
