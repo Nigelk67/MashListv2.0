@@ -25,7 +25,7 @@ class ItemCell: UICollectionViewCell {
         
         //dcs: just loaded more data points to fill out the CV a bit
         self.nameLbl.text = item.mediaTitle
-        self.directorLbl.text = item.director
+        self.directorLbl.text = "Director: \(item.director)"
         self.itemDescriptionLbl.text = item.itemDescription
         
         
@@ -45,6 +45,8 @@ class ItemCell: UICollectionViewCell {
                 DispatchQueue.global().sync {
                     //sets the thumbnail image
                     self.thumbImg.image = UIImage(data: data)
+                    self.thumbImg.isHidden = true
+                    
                 }
             } catch {
                 

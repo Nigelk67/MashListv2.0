@@ -18,7 +18,7 @@ class SearchVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     var mItem: MediaItem = MediaItem()
     
     var searchItem: String!
-    var trimmedText: String!
+    var trimmedText: String?
     var itemTitle: String?
     var searchUrl: String!
     
@@ -35,8 +35,8 @@ class SearchVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
 
         
         //dcs: updated this download method to include a completion handler which is called when you download all of the data for the request
-        DataService.ds.downloadiTunesData { (DownloadedItems) in
-            self.mediaItems = DownloadedItems
+//        DataService.ds.downloadiTunesData { (DownloadedItems) in
+//            self.mediaItems = DownloadedItems
         
         
             self.collection.dataSource = self
@@ -45,34 +45,28 @@ class SearchVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
             self.searchBar.delegate = self
         
         
-        
            self.collection.reloadData()
  }
-}
 
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        if searchBar.text == nil || searchBar.text == "" {
-//            inSearchMode = false
-//            collection.reloadData()
-//        } else {
-//            inSearchMode = true
-//            
-//            if (searchBar.text?.replacingOccurrences(of: " ", with: "")) != nil {
-//                //searchUrl = "\(CORE_URL)\(trimmedText)\(COUNTRY)\(TYPE)"
-//            
-//            
-//            print(SEARCH_URL)
-//            
-//             DataService.ds.downloadiTunesData { (DownloadedItems) in
-//                self.mediaItems = DownloadedItems
-//                    }
-//            self.collection.reloadData()
-//            searchBar.resignFirstResponder()
-//            } else {
-//                print("Invalid search")
-//            }
-//        }
-//    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if searchBar.text == nil || searchBar.text == "" {
+            inSearchMode = false
+            collection.reloadData()
+        } else {
+            trimmedText = searchBar.text?.replacingOccurrences(of: " ", with: "")
+            inSearchMode = true
+            searchBar.resignFirstResponder()
+            DataService.ds.downloadiTunesData { (DownloadedItems) in
+                self.mediaItems = DownloadedItems
+                    }
+            self.collection.reloadData()
+
+      }
+    }
+
+   
+        
     
     
     

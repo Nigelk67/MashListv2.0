@@ -138,24 +138,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="314" height="113"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MashBin Logo Small" translatesAutoresizingMaskIntoConstraints="NO" id="VpI-xj-bre">
-                                                    <rect key="frame" x="20" y="16" width="80" height="80"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6xe-yJ-34L">
+                                                    <rect key="frame" x="230" y="26" width="50" height="50"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="80" id="QVf-xA-Qhq"/>
-                                                        <constraint firstAttribute="height" constant="80" id="y9g-uQ-7N4"/>
+                                                        <constraint firstAttribute="width" constant="50" id="KWD-oj-K4W"/>
+                                                        <constraint firstAttribute="height" constant="50" id="qqc-ig-ovi"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="fe0-jh-NdX">
-                                                    <rect key="frame" x="106" y="10" width="185" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="eT0-aX-Ygn"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="VarelaRound-Regular" family="Varela Round" pointSize="22"/>
-                                                    <color key="textColor" red="0.99607843137254903" green="0.8666666666666667" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Director" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i56-j2-0bG">
-                                                    <rect key="frame" x="106" y="41" width="185" height="14"/>
+                                                    <rect key="frame" x="23" y="41" width="268" height="14"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="14" id="kap-hc-TgC"/>
                                                     </constraints>
@@ -164,7 +155,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Description" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K1t-ug-OJs">
-                                                    <rect key="frame" x="102" y="55" width="194" height="50"/>
+                                                    <rect key="frame" x="23" y="55" width="273" height="50"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="RiL-Lz-PS0"/>
@@ -173,27 +164,36 @@
                                                     <fontDescription key="fontDescription" name="VarelaRound-Regular" family="Varela Round" pointSize="12"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="fe0-jh-NdX">
+                                                    <rect key="frame" x="23" y="10" width="268" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="eT0-aX-Ygn"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="VarelaRound-Regular" family="Varela Round" pointSize="22"/>
+                                                    <color key="textColor" red="0.99607843137254903" green="0.8666666666666667" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="fe0-jh-NdX" firstAttribute="leading" secondItem="5oc-3n-vOL" secondAttribute="leadingMargin" constant="15" id="1Py-QZ-IWF"/>
+                                            <constraint firstItem="i56-j2-0bG" firstAttribute="leading" secondItem="5oc-3n-vOL" secondAttribute="leadingMargin" constant="15" id="9Ol-mL-Nnt"/>
                                             <constraint firstItem="fe0-jh-NdX" firstAttribute="top" secondItem="5oc-3n-vOL" secondAttribute="topMargin" constant="2" id="Awj-km-a8P"/>
                                             <constraint firstItem="K1t-ug-OJs" firstAttribute="top" secondItem="i56-j2-0bG" secondAttribute="bottom" id="EDm-up-z41"/>
-                                            <constraint firstItem="i56-j2-0bG" firstAttribute="leading" secondItem="VpI-xj-bre" secondAttribute="trailing" constant="6" id="Ffv-wi-KaP"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="fe0-jh-NdX" secondAttribute="trailing" constant="15" id="I8F-Ma-Azr"/>
-                                            <constraint firstItem="fe0-jh-NdX" firstAttribute="leading" secondItem="VpI-xj-bre" secondAttribute="trailing" constant="6" id="MGj-Y6-17F"/>
+                                            <constraint firstItem="K1t-ug-OJs" firstAttribute="leading" secondItem="5oc-3n-vOL" secondAttribute="leadingMargin" constant="15" id="OQq-GX-c31"/>
+                                            <constraint firstItem="6xe-yJ-34L" firstAttribute="top" secondItem="5oc-3n-vOL" secondAttribute="topMargin" constant="18" id="XkT-bE-qLA"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="K1t-ug-OJs" secondAttribute="trailing" constant="10" id="aZF-eO-yYu"/>
-                                            <constraint firstItem="VpI-xj-bre" firstAttribute="leading" secondItem="5oc-3n-vOL" secondAttribute="leading" constant="20" id="hQ0-tn-wIO"/>
-                                            <constraint firstItem="VpI-xj-bre" firstAttribute="centerY" secondItem="5oc-3n-vOL" secondAttribute="centerY" id="jQo-yu-HaF"/>
                                             <constraint firstItem="i56-j2-0bG" firstAttribute="top" secondItem="fe0-jh-NdX" secondAttribute="bottom" constant="1" id="kE5-ni-msS"/>
-                                            <constraint firstItem="K1t-ug-OJs" firstAttribute="leading" secondItem="VpI-xj-bre" secondAttribute="trailing" constant="2" id="rRg-I7-J72"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="6xe-yJ-34L" secondAttribute="trailing" constant="26" id="sc0-ha-l5e"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="i56-j2-0bG" secondAttribute="trailing" constant="15" id="xdD-cc-0xV"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="directorLbl" destination="i56-j2-0bG" id="IMC-xF-PmI"/>
                                             <outlet property="itemDescriptionLbl" destination="K1t-ug-OJs" id="hS1-2M-pDF"/>
                                             <outlet property="nameLbl" destination="fe0-jh-NdX" id="BjW-Jz-pPC"/>
-                                            <outlet property="thumbImg" destination="VpI-xj-bre" id="7wt-OY-EYm"/>
+                                            <outlet property="thumbImg" destination="6xe-yJ-34L" id="SBs-cR-FUw"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -462,7 +462,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="0.70414870689655173" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.73898168103448281" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="YRI-cE-19a" firstAttribute="centerY" secondItem="efz-Dl-Dg8" secondAttribute="centerY" id="DCr-3w-Gcq"/>
                             <constraint firstItem="YRI-cE-19a" firstAttribute="centerX" secondItem="efz-Dl-Dg8" secondAttribute="centerX" id="OJH-KS-lWW"/>
