@@ -20,6 +20,16 @@ private var _imgURL: String!
 private var _artistName: String!
     private var _price: String!
     
+    //For tableview on HomeScreen:-
+    
+//    init(imgURL: String, director: String, itemDescription: String, mediaTitle: String) {
+//        
+//        _imgURL = imgURL
+//        _director = director
+//        _itemDescription = itemDescription
+//        _mediaTitle = mediaTitle
+//        
+//    }
     
     var Price: String {
         get {

@@ -61,11 +61,11 @@ class SearchVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
             print(COUNTRY)
             print(TYPE)
             searchBar.resignFirstResponder()
-            DataService.ds.downloadiTunesData { (DownloadedItems) in
+            DataService.ds.downloadiTunesData(trimmedText: trimmedText, completion: { (DownloadedItems) in
                 self.mediaItems = DownloadedItems
-                    }
+                
             self.collection.reloadData()
-
+            })
       }
     }
 
