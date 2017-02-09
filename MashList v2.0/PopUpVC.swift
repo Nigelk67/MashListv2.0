@@ -18,6 +18,10 @@ class PopUpVC: UIViewController {
     
     var item: MediaItem!
     
+    // In The Recommended PopUp
+    @IBOutlet weak var RecommendedByLbl: UITextField!
+    
+    
     
     @IBAction func closePopUp(_ sender: UIButton) {
         

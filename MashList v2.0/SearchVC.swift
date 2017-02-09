@@ -18,7 +18,7 @@ class SearchVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     var mItem: MediaItem = MediaItem()
     
     var searchItem: String!
-    var trimmedText: String?
+    var trimmedText: String!
     var itemTitle: String?
     var searchUrl: String!
     
@@ -56,6 +56,10 @@ class SearchVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         } else {
             trimmedText = searchBar.text?.replacingOccurrences(of: " ", with: "")
             inSearchMode = true
+            print(CORE_URL)
+            print(trimmedText)
+            print(COUNTRY)
+            print(TYPE)
             searchBar.resignFirstResponder()
             DataService.ds.downloadiTunesData { (DownloadedItems) in
                 self.mediaItems = DownloadedItems
