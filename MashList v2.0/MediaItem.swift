@@ -18,7 +18,9 @@ private var _image: String!
 private var _mediaTitle: String!
 private var _imgURL: String!
 private var _artistName: String!
-    private var _price: String!
+private var _price: String!
+private var _backdropImage: String!
+    
     
     //For tableview on HomeScreen:-
     
@@ -126,39 +128,21 @@ var itemDescription: String {
         }
         
     }
+    
+    var backdropImage: String {
+        get {
+            if _backdropImage == nil {
+                _backdropImage = ""
+            }
+            return _backdropImage
+        }
+        set {
+            _backdropImage = newValue
+        }
         
-    
-
-
-//func downloadiTunesData(completed: @escaping DownloadComplete) {
-//    Alamofire.request(TEST_URL).responseJSON(completionHandler: { (response) in
-//        if let dict = response.result.value as? Dictionary<String, AnyObject> {
-//
-//            if let results = dict["results"] as? [Dictionary<String, AnyObject>] {
-//                if let director = results[0]["artistName"] as? String {
-//                    self._director = director.capitalized
-//                }
-//                if let mediaTitle = results[0]["trackName"] as? String {
-//                    self._mediaTitle = mediaTitle.capitalized
-//                }
-//                if let itemDescription = results[0]["longDescription"] as? String {
-//                    self._itemDescription = itemDescription.capitalized
-//                }
-//                if let image = results[0]["artworkUrl100"] as? String {
-//                    self._image = image
-//                }
-//                print(self._director)
-//                print(self._mediaTitle)
-//                print(self._itemDescription)
-//                print(self._image)
-//            }
-//            
-//        }
-//        completed()
-//    })
-//}
-
-    
+    }
+        
+        
     
     
 }

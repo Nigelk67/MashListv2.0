@@ -65,8 +65,7 @@ class DataService {
             
             completion(self.mediaTitles)
     })
-        }
-    
+}
     
     
 }

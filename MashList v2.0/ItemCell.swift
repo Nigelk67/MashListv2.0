@@ -45,7 +45,7 @@ class ItemCell: UICollectionViewCell {
                 DispatchQueue.global().sync {
                     //sets the thumbnail image
                     self.thumbImg.image = UIImage(data: data)
-                    self.thumbImg.isHidden = true
+                    self.thumbImg.isHidden = false
                     
                 }
             } catch {

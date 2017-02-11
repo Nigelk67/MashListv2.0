@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+
 
 class PopUpVC: UIViewController {
     
@@ -15,14 +17,17 @@ class PopUpVC: UIViewController {
     @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var centerPopupConstraint: NSLayoutConstraint!
     @IBOutlet weak var RecommendPopUpView: UIView!
+    @IBOutlet weak var thumbImg: UIImageView!
+    @IBOutlet weak var directorLbl: UILabel!
+    @IBOutlet weak var itemDetail: UITextView!
     
     var item: MediaItem!
+    var itemCell: ItemCell!
+    
+    
     
     // In The Recommended PopUp
     @IBOutlet weak var RecommendedByLbl: UITextField!
-    
-    
-    
     @IBAction func closePopUp(_ sender: UIButton) {
         
         dismiss(animated: true, completion: nil)
@@ -34,16 +39,20 @@ class PopUpVC: UIViewController {
         super.viewDidLoad()
         
         nameLbl.text = item.mediaTitle
-
+        directorLbl.text = "Director: \(item.director)"
+        itemDetail.text = item.itemDescription
+        //thumbImg.image = 
+        
+        
+        
         popUpView.layer.cornerRadius = 20
         //popUpView.layer.masksToBounds = true
         RecommendPopUpView.layer.cornerRadius = 20
     //    RecommendPopUpView.layer.masksToBounds = true
         
-    
         
     }
-
+    
     
     @IBAction func ShowRecommendedPopup(_ sender: UIButton) {
         centerPopupConstraint.constant = 0
