@@ -23,7 +23,7 @@ class PopUpVC: UIViewController {
     
     var item: MediaItem!
     var itemCell: ItemCell!
-    
+    var mediaItems = [MediaItem]()
     
     
     // In The Recommended PopUp
@@ -37,12 +37,35 @@ class PopUpVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //DataService.ds.downloadiTunesData(trimmedText: trimmedText, completion: { (DownloadedItems) in
+        //self.mediaItems = DownloadedItems
+
         
-        nameLbl.text = item.mediaTitle
+        
+             nameLbl.text = item.mediaTitle
         directorLbl.text = "Director: \(item.director)"
         itemDetail.text = item.itemDescription
-        //thumbImg.image = 
+       //thumbImg.image = UIImage(named: item.imgURL)
         
+        let url = URL(string: item.imgURL)
+        DispatchQueue.global().async {
+            do {
+                //gets the data from the download request ( ie:  image )
+                let data = try Data(contentsOf: url!)
+                
+                //puts you back on the main ui thread so you can access the ui elements
+                DispatchQueue.global().sync {
+                    //sets the thumbnail image
+                    self.thumbImg.image = UIImage(data: data)
+                    self.thumbImg.isHidden = false
+                    
+                }
+            } catch {
+                
+            }
+        }
+        
+
         
         
         popUpView.layer.cornerRadius = 20
@@ -57,6 +80,9 @@ class PopUpVC: UIViewController {
     @IBAction func ShowRecommendedPopup(_ sender: UIButton) {
         centerPopupConstraint.constant = 0
         popUpView.isHidden = true
+        RecommendPopUpView.backgroundColor = UIColor.darkGray
+        
+       
         // With Spring Dampers, the higher the number (max = 1) the less bounce you get:-
         UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
             self.view.layoutIfNeeded()

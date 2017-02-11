@@ -15,6 +15,7 @@ class DataService {
     static let ds = DataService()
     
     var mediaTitles = [MediaItem]()
+    var TmdbTitles = [MediaItem]()
     var images = [String]()
    
     var mediaItem: MediaItem!
@@ -66,6 +67,42 @@ class DataService {
             completion(self.mediaTitles)
     })
 }
+    
+//    func downloadPoster(completion: @escaping (_ result: [MediaItem]) -> Void) {
+//        Alamofire.request(IMAGE_URL).responseJSON(completionHandler: { (response) in
+//            if let dict = response.result.value as? Dictionary<String, AnyObject> {
+//                if let results = dict["results"] as? NSArray {
+//                    for index in 0..<results.count {
+//                        let mItem: MediaItem = MediaItem()
+//                        for ( key, value) in (results[index] as? Dictionary<String, AnyObject>)! {
+//                            if key == "poster_path" {
+//                                mItem.backdropImage = value as! String
+//                            }
+//                            
+//                        }
+//                        print(mItem.backdropImage)
+//                        self.TmdbTitles.append(mItem)
+//                    }
+//                   
+//                
+//                }
+//            }
+//            completion(self.TmdbTitles)
+//        })
+//    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
 }
