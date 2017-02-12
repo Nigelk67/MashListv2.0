@@ -45,6 +45,10 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     }
     
+    @IBAction func addButtonPressed(_ sender: UIButton) {
+        
+        performSegue(withIdentifier: "SearchVC", sender: "HomeVC")
+    }
     
     
     

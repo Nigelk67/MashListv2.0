@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 
 
-class PopUpVC: UIViewController {
+class PopUpVC: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var nameLbl: UILabel!
@@ -26,6 +26,7 @@ class PopUpVC: UIViewController {
     var mediaItems = [MediaItem]()
     
     
+    
     // In The Recommended PopUp
     @IBOutlet weak var RecommendedByLbl: UITextField!
     @IBAction func closePopUp(_ sender: UIButton) {
@@ -33,12 +34,16 @@ class PopUpVC: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBOutlet weak var backgroundImage: UIImageView!
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //DataService.ds.downloadiTunesData(trimmedText: trimmedText, completion: { (DownloadedItems) in
         //self.mediaItems = DownloadedItems
+        
+        self.RecommendedByLbl.delegate = self
 
         
         
@@ -65,14 +70,10 @@ class PopUpVC: UIViewController {
             }
         }
         
-
-        
-        
         popUpView.layer.cornerRadius = 20
         //popUpView.layer.masksToBounds = true
         RecommendPopUpView.layer.cornerRadius = 20
     //    RecommendPopUpView.layer.masksToBounds = true
-        
         
     }
     
@@ -80,7 +81,6 @@ class PopUpVC: UIViewController {
     @IBAction func ShowRecommendedPopup(_ sender: UIButton) {
         centerPopupConstraint.constant = 0
         popUpView.isHidden = true
-        RecommendPopUpView.backgroundColor = UIColor.darkGray
         
        
         // With Spring Dampers, the higher the number (max = 1) the less bounce you get:-
@@ -89,6 +89,20 @@ class PopUpVC: UIViewController {
         }, completion: nil)
         
     }
+    
+    //2 x Close functions for keyboard - either clicking on return or touching outdside. NOTE need to connect the textField delegate to the VC, and include the self.delegate code in ViewDidLoad.
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+        
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+          }
+    
+    
+    //Actions on the RECOMMENDED POPUP:-
     
     @IBAction func closeRecommendedPopUp(_ sender: UIButton) {
         
@@ -99,6 +113,25 @@ class PopUpVC: UIViewController {
         })
         
     }
+    
+    @IBAction func continueBtnPressed(_ sender: Any) {
+        
+        performSegue(withIdentifier: "HomeVC", sender: "PopUpVC")
+        
+    }
+    
+    
+    @IBAction func skipBtnPressed(_ sender: Any) {
+        
+        performSegue(withIdentifier: "HomeVC", sender: "PopUpVC")
+    }
+    
+    
+    
+    
+    
+    
+    
     
     
     

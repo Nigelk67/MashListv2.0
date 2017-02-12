@@ -14,6 +14,12 @@ class SearchVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     @IBOutlet weak var collection: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    @IBOutlet weak var tvButton: UIButton!
+    @IBOutlet weak var movieButton: UIButton!
+    
+    
+    
+    
     var mediaItems = [MediaItem]()
     var mItem: MediaItem = MediaItem()
     
@@ -21,6 +27,7 @@ class SearchVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     var trimmedText: String!
     var itemTitle: String?
     var searchUrl: String!
+    var type: String!
     
     
     //Create array for the search function:-
@@ -49,6 +56,24 @@ class SearchVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
  }
 
 
+    @IBAction func tvButtonPressed(_ sender: Any) {
+        
+        tvButton.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        movieButton.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        type = "tv"
+    }
+    
+    
+    
+    @IBAction func movieButtonPressed(_ sender: Any) {
+        
+        movieButton.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        tvButton.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        type = "movie"
+    }
+    
+    
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if searchBar.text == nil || searchBar.text == "" {
             inSearchMode = false
@@ -65,11 +90,17 @@ class SearchVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
                 self.mediaItems = DownloadedItems
                 
             self.collection.reloadData()
+                self.collection.backgroundColor = UIColor.black
+                self.collection.alpha = 0.7
             })
       }
     }
 
    
+    @IBAction func backButtonPressed(_ sender: UIButton) {
+        
+        performSegue(withIdentifier: "HomeVC", sender: "SearchVC")
+    }
         
     
     
