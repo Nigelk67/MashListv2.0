@@ -50,8 +50,8 @@ class PopUpVC: UIViewController, UITextFieldDelegate {
              nameLbl.text = item.mediaTitle
         directorLbl.text = "Director: \(item.director)"
         itemDetail.text = item.itemDescription
-       //thumbImg.image = UIImage(named: item.imgURL)
         
+        //For the image:-
         let url = URL(string: item.imgURL)
         DispatchQueue.global().async {
             do {

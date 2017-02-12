@@ -17,22 +17,35 @@ class HomeScreenCell: UITableViewCell {
     @IBOutlet weak var titleDesc: UILabel!
     
     
-    
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        
-        
     }
 
    
-    func updateUI(mediaItem: MediaItem) {
+    func configureCell(mediaItem: MediaItem) {
         
         titleLbl.text = mediaItem.mediaTitle
         directorLabel.text = mediaItem.director
         titleDesc.text = mediaItem.itemDescription
         
+        let url = URL(string: mediaItem.imgURL)
+        DispatchQueue.global().async {
+            do {
+                //gets the data from the download request ( ie:  image )
+                let data = try Data(contentsOf: url!)
+                
+                //puts you back on the main ui thread so you can access the ui elements
+                DispatchQueue.global().sync {
+                    //sets the thumbnail image
+                    self.titleImg.image = UIImage(data: data)
+                    
+                }
+            } catch {
+                
+            }
+        }
+
         
     }
     

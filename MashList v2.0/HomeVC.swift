@@ -12,6 +12,11 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
+    
+    var mediaItems = [MediaItem]()
+    
+    
+    
     //Array for the item - something like - var mediaItems = [MediaItem]()
     
     
@@ -20,6 +25,7 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.reloadData()
         
     }
 
@@ -32,6 +38,13 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             //let mediaItem = THIS SHOULD BE THE ARRAY FROM THE MEDIA ITEM (SEE ABOVE) mediaItems[indexPath.row]
             // ensure the numberofRowsInSection function is equal to mediaItems.count, then it will only include this count
             //cell.updateUI(mediaItem: mediaItem)
+            
+            let media = mediaItems[indexPath.row]
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "HomeScreenCell", for: indexPath) as? HomeScreenCell {
+                
+                cell.configureCell(mediaItem: media)
+            }
+            
             return cell
             
         } else {
@@ -41,7 +54,7 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return mediaItems.count
         
     }
     
@@ -49,6 +62,15 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         performSegue(withIdentifier: "SearchVC", sender: "HomeVC")
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
