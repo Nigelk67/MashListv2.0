@@ -50,5 +50,18 @@
 	<array>
 		<string>VarelaRound-Regular.ttf</string>
 	</array>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>fb1114642571995590</string>
+            </array>
+        </dict>
+    </array>
+    <key>FacebookAppID</key>
+    <string>1114642571995590</string>
+    <key>FacebookDisplayName</key>
+    <string>The MashList</string>
 </dict>
 </plist>

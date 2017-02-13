@@ -805,7 +805,7 @@
                                 </constraints>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.25363685339999997" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="VarelaRound-Regular" family="Varela Round" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ui-Rf-4d3">
                                 <rect key="frame" x="82" y="456" width="157" height="52"/>
@@ -817,16 +817,23 @@
                                 <state key="normal" title="Sign In" backgroundImage="Movie Add Box">
                                     <color key="titleColor" red="0.031372549019607843" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="signInButtonPressed:" destination="VcW-kt-dl4" eventType="touchUpInside" id="ecv-QR-Kh6"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="kdV-r5-dUB" userLabel="Facebook Stack View">
                                 <rect key="frame" x="169" y="205" width="125" height="94"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FB-f-Logo__blue_1024" translatesAutoresizingMaskIntoConstraints="NO" id="rAV-E4-seV">
                                         <rect key="frame" x="28" y="0.0" width="69" height="69"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="69" id="Oq9-Nx-nIo"/>
                                             <constraint firstAttribute="width" constant="69" id="Xol-bi-tSZ"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="66u-jd-1tg" appends="YES" id="wdv-To-ncB"/>
+                                        </connections>
                                     </imageView>
                                     <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Sign In with Facebook" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hep-gk-d39">
                                         <rect key="frame" x="0.0" y="64" width="125" height="30"/>
@@ -867,8 +874,17 @@
                             <constraint firstItem="BrF-bG-vHa" firstAttribute="top" secondItem="kdV-r5-dUB" secondAttribute="bottom" constant="40" id="yCj-6D-SH1"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="BrF-bG-vHa" id="l1N-bp-jLX"/>
+                        <outlet property="passwordField" destination="pej-31-mif" id="BTa-wh-n7H"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bfO-Xa-od4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="66u-jd-1tg">
+                    <connections>
+                        <action selector="facebookBtnPressed:" destination="VcW-kt-dl4" id="QfI-tq-Q3S"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2557.5" y="51.760563380281688"/>
         </scene>
